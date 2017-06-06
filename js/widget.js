@@ -19,13 +19,7 @@ function transform(input) {
       newInputString += (" " + word + " ")
     }
   })
-  // if (boldAsterisk.test(input)) {
-  //   var matchGroup = input.match(boldAsterisk);
-  //   console.log(matchGroup)
-  //   var remainderInput = input.replace(matchGroup, "");
-  //   // var input = remainderInput + "<strong>" + matchGroup + "</strong>"
-  //   var input = "<strong>" + matchGroup[1] + "</strong>"
-  // }
+
   return newInputString;
 }
 
