@@ -5,17 +5,8 @@ $(document).ready(function() {
 function transform(input) {
   var lines = input.split("\n")
   for(var i = 0; i < lines.length; i++){
-    if(lines[i].match(/^(\s*)([_]|\*{2})/)){
-      lines[i] = "<p>" + "<em>" + lines[i].replace(/^(\s*)[_]|\*{2}/g, '$1') + "</em>" + "</p>"
-    }
-    else if(lines[i].match(/^(\s*)\*{1}/)){
-      lines[i] = "<p>" + "<strong>" + lines[i].replace(/^(\s*)\*{1}/g, '$1') + "</strong>" + "</p>"
-    }
-    else{
-      lines[i] = "<p>" + lines[i] + "</p>"
-    }
+    lines[i] = addHTML(lines[i])
   }
-  console.log("lines are " + lines.join('\n'))
   return lines.join('\n');
 }
 
@@ -25,4 +16,16 @@ function MarkdownWidget(inputID, outputID){
     $(outputID).empty()
     $(outputID).append(transform(input))
   })
+}
+
+function addHTML(line){
+  if(line.match(/^(\s*)([_]|\*{2})/)){
+    return "<p>" + "<em>" + line.replace(/^(\s*)[_]|\*{2}/g, '$1') + "</em>" + "</p>"
+  }
+  else if(line.match(/^(\s*)\*{1}/)){
+    return "<p>" + "<strong>" + line.replace(/^(\s*)\*{1}/g, '$1') + "</strong>" + "</p>"
+  }
+  else{
+    return "<p>" + line + "</p>"
+  }
 }
