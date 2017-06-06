@@ -1,11 +1,11 @@
 $(document).ready(function(){
 
-  mdPreview = new MarkdownPreview;
+  // mdPreview = new Markdown;
 
   $("#input").on("keyup", function(event){
     input = $(this).val();
     $preview = $('#preview')
-    $preview.html(mdPreview.transform(input));
+    $preview.html(markdown.toHTML(input));
   })
 
 })
