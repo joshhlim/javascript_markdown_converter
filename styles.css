@@ -1,0 +1,19 @@
+body, textarea {
+  font-size: 1.2em;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+}
+
+#input, #preview {
+  border: solid 2px grey;
+  height: 600px;
+  width: 600px;
+}
