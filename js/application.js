@@ -2,19 +2,23 @@ $(document).ready(function() {
   MarkdownWidget("#source-id", "#preview-div")
 });
 
-function transform(input) {
-  var lines = input.split("\n")
-  for(var i = 0; i < lines.length; i++){
-    lines[i] = addHTML(lines[i])
-  }
-  return lines.join('\n');
+// function transform(input) {
+//   var lines = input.split("\n")
+//   for(var i = 0; i < lines.length; i++){
+//     lines[i] = addHTML(lines[i])
+//   }
+//   return lines.join('\n');
+// }
+
+function transform(input){
+  return markdown.toHTML(input)
 }
 
 function MarkdownWidget(inputID, outputID){
   $(inputID).on('keyup', function(event){
     input = $(inputID).val()
     $(outputID).empty()
-    $(outputID).append(transform(input))
+    $(outputID).html(transform(input))
   })
 }
 
